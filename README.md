@@ -17,7 +17,7 @@
 - mvn compile package
 - more src/main/resources/application.properties
 - cp src/main/resources/application.properties src/main/resources/application-production.properties
-- mvn package
+- mvn package 
 - java -jar -Dspring.profiles.active=production target/打的jar包
 - git pull
 - mvn package
