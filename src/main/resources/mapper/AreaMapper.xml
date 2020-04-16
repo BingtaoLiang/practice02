@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.practice.mapper.AreaMapper">
+
+
+    <select id="regionList" resultType="school">
+        select distinct region, reid
+        from zhiyuan.school
+        order by reid
+    </select>
+
+    <select id="getAreaByReid" resultType="school" parameterType="int">
+        select distinct areaname, areaid
+        from zhiyuan.school
+        where reid = #{reid}
+    </select>
+
+</mapper>

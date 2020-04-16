@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>schools</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/practice.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body>
+
+    <div th:insert="navigation :: nav"></div>
+    <div class="container-fluid">
+        <ul class="list-group col-xs-12 col-sm-12 col-md-12 col-lg-12" th:each="school:${schools}">
+            <a th:href="@{'/profession/'+${school.scid}}">
+                <li class="list-group-item" th:text="${school.name}"></li>
+            </a>
+        </ul>
+    </div>
+
+</body>
+</html>

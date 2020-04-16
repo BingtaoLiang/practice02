@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新高考</title>
+    <link rel="stylesheet" href="css/fix.css" type="text/css">
+
+
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+
+        .cube {
+            width: 1250px;
+            height: 660px;
+            background-color: #FFFFFF;
+            margin: 30px 40px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"] + span {
+            display: inline-block;
+            width: 130px;
+            height: 50px;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid #999;
+            background-color: #fff;
+            margin: 24px 20px;
+            border-radius: 25px;
+        }
+
+        input[type="radio"]:checked + span {
+            border: 1px solid #090;
+            background-color: #cacacd;
+        }
+
+        .sumbit {
+            width: 160px;
+            height: 50px;
+            background-color: cadetblue;
+            text-align: center;
+            margin-top: 30px;
+            margin-left: 540px;
+            border: 1px solid;
+            font-size: 20px;
+        }
+
+        .sm {
+            margin: 30px 60px;
+            width: 1050px;
+            border-style: dashed;
+
+            border-width: 1px;
+        }
+
+        .sm p {
+            font-size: 4px;
+            margin-left: 10px;
+            color: #42495d;
+        }
+
+        .zd a {
+            width: 50px;
+            height: 50px;
+            background-color: #42495d;
+            color: #b0b0b0;
+            font-size: 15px;
+        }
+
+
+        .con {
+            /*border: 1px solid #000;*/
+            /*padding: 10px;*/
+            width: 62px;
+            height: 50px;
+            background-color: #42495d;
+            float: right;
+            position: fixed;
+            bottom: 62px;
+            right: 0px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #b0b0b0;
+        }
+
+        .img {
+            display: none;
+            width: 50px;
+            height: 50px;
+        }
+
+        .con:hover > .img {
+            display: block;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            bottom: 0;
+            right: 43px;
+            z-index: 30;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="title1">
+    <div class="title">
+        <div class="heading-spotlight">
+            <a href="/">
+                <img src="http://img3.youzy.cn/content/media/thumbs/p00208392.png" height="80" width="358">
+            </a>
+
+        </div>
+    </div>
+    <div style="display: inline-block;float: right;margin-top: 22px">
+        <form style="float: left;margin-top: 3px">
+            <input type="txt_zip" style="float: left" placeholder="找大学/查专业">
+        </form>
+        <a href="/denglu" style="float: left">
+            <button class="vipbutton">登录</button>
+
+        </a>
+        <a href="/register" style="float: left">
+            <button class="vipbutton">注册</button>
+        </a>
+
+    </div>
+
+
+    <div class="top">
+        <div class="top_content"> 志愿填报专家</div>
+        <div class="heading-navbar">
+
+            <div class="dropdown">
+                <span><a href="/">首页</a></span>
+            </div>
+            <div class="dropdown">
+                <span><a href="/xingaokao">新高考》</a></span>
+                <div class="dropdown-content">
+                    <a href="/zixun">高考资讯</a>
+                    <br>
+                    <a>完整智能模式</a>
+                    <br>
+                    <a href="/chaxun">根据大学选专业</a>
+                    <br>
+                    <a>根据专业选科目</a>
+                    <br>
+                    <a>根据科目选专业</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <span><a href="/ceshi">学业测评</a></span>
+            </div>
+            <div class="dropdown">
+                <span><a href="/denglu">智能填报》</a></span>
+                <div class="dropdown-content" style="width: 200px">
+                    <div class="lf" style="width: 40%;float: left">
+                        <p>查</p>
+                        <a href="/majors/Homepage">查专业</a>
+                        <br>
+                        <a href="/schoolHomepage">找大学</a> <br>
+                        <a href="/weici">位次查询</a> <br>
+                        <a href="/fenshuxian">分数线</a> <br>
+                        <a>提前批</a> <br>
+                        <a>看职业</a> <br>
+                        <a href="/picixian">批次线</a> <br>
+
+                    </div>
+                    <div class="ri" style="width: 60%;float: left"></div>
+                    <p>填</p>
+                    <a href="/yijiantianbao">一键填报</a> <br>
+                    <a href="/1dui1">专家一对一填报</a> <br>
+                    <a href="/yijiantianbao">院线优先填报</a> <br>
+                    <a href="/yijiantianbao">专业优先填报</a> <br>
+                    <a href="/yijiantianbao">自主填报</a> <br>
+                </div>
+            </div>
+            <div class="dropdown">
+                <span><a href="/jiangtang">课堂》</a></span>
+                <div class="dropdown-content" style="width: 300px">
+                    <div class="lf" style="width: 30%;float: left">
+                        <p>讲堂</p>
+
+
+                    </div>
+                    <div class="lf" style="width: 30%;float: left">
+                        <a href="/ketang">课程</a><br>
+                        <a>语文</a>
+                        <a>数学</a> <br>
+                        <a>英语</a>
+                        <a>生物</a> <br>
+                        <a>历史</a>
+                        <a>地理</a> <br>
+                        <a>物理</a>
+                        <a>政治</a> <br>
+                        <a>化学</a>
+
+                    </div>
+                    <div class="ri" style="width: 30%;float: left"></div>
+                    <p href="/kaoshi">试题》</p>
+                    <a>模拟试题</a> <br>
+                    <a>高考真题</a> <br>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <span><a href="/fuwu">服务</a></span>
+            </div>
+            <div class="dropdown">
+                <span><a href="/zixunshi">咨询师</a></span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="cube">
+    <br>
+
+    <h1 style="text-align: center">请选择省份</h1>
+    <form action="">
+        <!--        <label><input type="radio" name="test" checked="checked" /><span>B北京</span></label>-->
+        <label><input type="radio" name="r" value="0"/><span>B北京</span></label>
+        <label><input type="radio" name="r" value="1"/><span>H海南</span></label>
+        <label><input type="radio" name="r" value="2"/><span>S上海</span></label>
+        <label><input type="radio" name="r" value="3"/><span>S山东</span></label>
+        <label><input type="radio" name="r" value="4"/><span>T天津</span></label>
+        <label><input type="radio" name="r" value="5"/><span>Z浙江</span></label>
+        <label><input type="radio" name="r" value="6"/><span>J江苏</span></label>
+        <br>
+        <label><input type="radio" name="r" value="7"/><span>H湖北</span></label>
+        <label><input type="radio" name="r" value="8"/><span>H湖南</span></label>
+        <label><input type="radio" name="r" value="9"/><span>L辽宁</span></label>
+        <label><input type="radio" name="r" value="10"/><span>C重庆</span></label>
+        <label><input type="radio" name="r" value="11"/><span>F福建</span></label>
+        <label><input type="radio" name="r" value="12"/><span>G广东</span></label>
+        <label><input type="radio" name="r" value="13"/><span>H河北</span></label>
+
+    </form>
+
+    <input class="sumbit" type="button" value="下一步" onclick="che()"/>
+    <div class="sm">
+        <h6 class="pt10" style="margin-left: 5px ">数据说明：</h6>
+        <p>1、本系统选科查询结果根据教育考试院发布“普通高校专业（类）选考科目范围”；</p>
+        <p>2、用户应根据自己的兴趣特长、职业生涯规划和学习情况等，结合选考科目范围综合考虑，自主确定选考科目；</p>
+        <p>3、因少量院校不定期进行学科专业调整，本系统选科推荐辅助参考。</p>
+    </div>
+</div>
+
+
+<div class="con"><p>微信咨询</p>
+    <img class="img" src="http://img3.youzy.cn/content/media/thumbs/p00215513.jpeg"/>
+</div>
+<div class="zd">
+
+    <a href="#" name="ding" style="float: right;position:fixed;bottom:0;right:0;">回到顶部</a><br/>
+</div>
+
+
+<div class="page-footer">
+    <div class="container">
+        <ul class="ts">
+            <li>
+                <a href="">关于我们
+
+                </a>
+
+            </li>
+            <li>
+                <a href="">联系我们</a>
+            </li>
+            <li>
+                <a href=""><i class="iconfont icon-tian"></i>法律声明</a>
+            </li>
+            <!--            <li>-->
+            <!--                <a href=""><i class="iconfont icon-lipinl"></i>4维修服务</a>-->
+            <!--            </li>-->
+            <li>
+                <a>服务热线： 18629648756</a>
+                <br><a>营业时间： 9:00~21:00</a>
+
+            </li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h>UP志愿专家 西安阿谱云教育科技有限公司版权所有 陕ICP备
+                <br>
+                20000936号 © 2012- 2020
+            </h>
+        </ul>
+
+
+    </div>
+</div>
+
+<script>
+    var data = 0;
+
+    function che() {
+        var rs = document.getElementsByName('r');
+        for (var i = 0, len = rs.length; i < len; i++) {
+            if (i < 6 && rs[i].checked) {
+                // data = i;
+                // alert(data);
+                window.location.href = '/xuanke';
+                break;
+            } else {
+                window.location.href = '/xuanke2';
+            }
+        }
+    }
+</script>
+
+
+</body>
+
+
+</html>
