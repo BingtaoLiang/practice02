@@ -116,7 +116,7 @@
                 <configuration>
                     <url>jdbc:mysql://180.76.247.29:3306/zhiyuan?serverTimezone=GMT%2B8</url>
                     <user>root</user>
-                    <password>root</password>
+                    <password>QQ@1607247596</password>
                 </configuration>
                 <dependencies>
                     <dependency>
