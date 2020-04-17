@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
@@ -16,13 +16,13 @@
             margin: 30px 40px;
         }
 
-        .cube input{
+        .cube input {
             width: 490px;
             height: 40px;
 
         }
 
-        .cube img{
+        .cube img {
             position: absolute;
             margin-top: 20px;
             left: 560px;
@@ -43,22 +43,22 @@
 
         </div>
     </div>
-    <div  style="display: inline-block;float: right;margin-top: 22px">
+    <div style="display: inline-block;float: right;margin-top: 22px">
         <form style="float: left;margin-top: 3px">
-            <input type="txt_zip"  style="float: left" placeholder="找大学/查专业" >
+            <input type="txt_zip" style="float: left" placeholder="找大学/查专业">
         </form>
         <a href="/denglu" style="float: left">
-            <button class="vipbutton" >登录</button>
+            <button class="vipbutton">登录</button>
 
         </a>
         <a href="/register" style="float: left">
-            <button class="vipbutton" >注册</button>
+            <button class="vipbutton">注册</button>
         </a>
 
     </div>
 
 
-    <div class="top" >
+    <div class="top">
         <div class="top_content"> 志愿填报专家</div>
         <div class="heading-navbar">
 
@@ -67,7 +67,7 @@
             </div>
             <div class="dropdown">
                 <span><a href="/xingaokao">新高考》</a></span>
-                <div class="dropdown-content" >
+                <div class="dropdown-content">
                     <a href="/zixun">高考资讯</a>
                     <br>
                     <a>完整智能模式</a>
@@ -82,7 +82,7 @@
             <div class="dropdown">
                 <span><a href="/ceshi">学业测评</a></span>
             </div>
-            <div class="dropdown" >
+            <div class="dropdown">
                 <span><a href="/denglu">智能填报》</a></span>
                 <div class="dropdown-content" style="width: 200px">
                     <div class="lf" style="width: 40%;float: left">
@@ -147,26 +147,29 @@
 </div>
 
 <div class="cube">
-    <img src="http://img3.youzy.cn/content/media/thumbs/p00208392.png" alt="" >
+    <img src="http://img3.youzy.cn/content/media/thumbs/p00208392.png" alt="">
     <div>
         <form action="/addregister" method="post">
-            <p style="margin-left:320px ">用户名：<input style=" margin: 5px 10px;border-radius: 0px" type="text" name="username" placeholder="请输入用户名"></p>
-            <p style="margin-left:320px ">密码： <input style=" margin: 5px 21px;border-radius: 0px" type="text" name="password" placeholder="请输入密码"></p>
-            <p style="margin-left:320px ">确认密码： <input style=" margin: 5px 21px;border-radius: 0px" type="text" name="password2" placeholder="确认密码"></p>
-
-            <p style="margin-left:320px ">电话：  <input style=" margin-top: 110px;margin-left: 21px;border-radius: 0px" type="text" name="userPhone" placeholder="请输入电话"></p>
-            <p style="margin-left:320px "> 验证码：<input style=" margin: 5px 10px;border-radius: 0px" type="text" placeholder="验证码"></p>
-            <p style="margin-left:55px "> <input style="border-radius: 0px;margin-left: 340px" type="submit" value="注册">
+            <p style="margin-left:320px ">用户名：<input style=" margin: 5px 10px;border-radius: 0px" type="text"
+                                                     name="username" placeholder="请输入用户名"></p>
+            <p style="margin-left:320px ">密码： <input style=" margin: 5px 21px;border-radius: 0px" type="password"
+                                                     name="password" placeholder="请输入密码"></p>
+            <p style="margin-left:288px ">确认密码： <input style=" margin: 5px 21px;border-radius: 0px" type="password"
+                                                       name="password2" placeholder="确认密码"></p>
+            <p style="margin-left:320px ">电话： <input style=" margin-top: 5px;margin-left: 21px;border-radius: 0px"
+                                                     type="text" name="userPhone" placeholder="请输入电话"></p>
+            <p style="margin-left:320px "> 验证码：<input style=" margin: 13px 10px;border-radius: 0px" type="text"
+                                                      placeholder="验证码"></p>
+            <p style="margin-left:55px "><input style="border-radius: 0px;margin-left: 340px" type="submit" value="注册">
         </form>
-
+        <h4 th:text="${msg}"></h4>
     </div>
     <div>
-       
+
     </div>
 
 
 </div>
-
 
 
 <div class="page-footer">

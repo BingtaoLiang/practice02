@@ -50,7 +50,7 @@ public class AuthorizeController {
             //说明该手机号没有被注册，可以注册该手机号
             if (password.length() < 6 || password.length() > 16) {
                 map.put("msg", "密码过短或过长");
-                return "registerBefore";
+                return "register";
             }else if (password.equals(password2) && userIdentify ==null){
                 //密码输入正确，并且该用户名可以被使用，执行注册操作
                 User user =new User();
@@ -59,14 +59,14 @@ public class AuthorizeController {
                 user.setUserphone(userPhone);
                 userMapper.save(user);
                 map.put("msg","注册成功，请登录");
-                return "login";
+                return "denglu";
             }else{
                 map.put("msg","用户名已存在或两次密码不一致");
-                return "registerBefore";
+                return "register";
             }
         }else{
             map.put("msg", "该手机号已注册，请直接登录");
-            return "login";
+            return "denglu";
         }
     }
 
