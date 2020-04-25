@@ -23,6 +23,7 @@
 - git pull
 - mvn package
 - java -jar -Dspring.profiles.active=production target/打的jar包
+- nohup java -jar -Dspring.profiles.active=production target/打的jar包 &   //不挂断执行命令
 2. 克隆代码到本地  
 3. 运行命令创建数据库脚本
 ```sh

@@ -35,7 +35,7 @@ public class ScoreLineController {
         List<Gaokao> proAndCalendarData = gaokaoMapper.getProAndCalendarData(schoolName);//查询专业招生计划和历年数据
         model.addAttribute("scorelines", scoresBySchoolName);
         model.addAttribute("proAndCalData", proAndCalendarData);
-        return "";
+        return "fenshuxian";
     }
 
 
@@ -59,6 +59,6 @@ public class ScoreLineController {
         rankByScoreHigh++;
         model.addAttribute("rankLow", rankByScoreLow);
         model.addAttribute("rankHigh", rankByScoreHigh);
-        return "ranksearch";
+        return "weici";
     }
 }

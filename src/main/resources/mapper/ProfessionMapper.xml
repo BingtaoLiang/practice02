@@ -61,7 +61,7 @@
 
 
     <select id="selectDistinctMajor" resultType="profession">
-        select distinct subject, major, pid, proname, code
+        select distinct major, subject,  pid,proname,code
         from zhiyuan.profession;
     </select>
 

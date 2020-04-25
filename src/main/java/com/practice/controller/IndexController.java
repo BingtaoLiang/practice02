@@ -74,7 +74,7 @@ public class IndexController {
 
     @GetMapping("/zhaodaxue")
     public String zhaodaxue() {
-        return "zhaodaxue";
+        return "zhaodaxueBefore";
     }
 
     @GetMapping("/weici")
