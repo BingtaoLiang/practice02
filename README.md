@@ -1,4 +1,5 @@
 ## 码匠社区
+java -jar -Dspring.profiles.active=production target/practice-0.0.1-SNAPSHOT.jar
 
 ## 快速运行
 1. 安装必备工具  
@@ -17,7 +18,7 @@
 - mvn compile package
 - more src/main/resources/application.properties
 - cp src/main/resources/application.properties src/main/resources/application-production.properties
-- vim src/main/resources/application.properties
+- vim src/main/resources/application-production.properties
 - mvn package 
 - java -jar -Dspring.profiles.active=production target/打的jar包
 - git pull
