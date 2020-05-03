@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>我的测评</title>
-
+    <title>智能填报</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,6 +22,7 @@
         .dropdown active{
             background-color: #b0b0b0;
         }
+
 
 
 
@@ -53,8 +53,28 @@
 
 
 
+        .sm {
+            margin-left: 40px;
+            margin-top: 20px;
+            width:90%;
+            height:170px;
+            border-style: dashed;
+             border-color: #9D1E15;
+            border-width: 1px;
+        }
+
+        .sm p {
+            font-size: 4px;
+            margin-left: 10px;
+            margin-top: 10px;
+            color: #66696b;
+        }
+
+
     </style>
-    <div th:insert="navigation :: nav"></div>
+</head>
+<body>
+<div th:insert="navigation :: nav"></div>
 
     <ul class="breadcrumb" style="margin-top: -20px;background-color: white">
         <span class="glyphicon glyphicon-pawn"></span>
@@ -63,10 +83,13 @@
 
     </ul>
 
-    <div class="container" style="background-color: #FFFFFF;width: 1260px;height: 630px">
+    <div class="container" style="background-color:#FFFFFF;width: 1260px;height: 640px">
 
         <div class="col-lg-3" style="margin-left: -30px">
             <img src="http://staticv2.youzy.cn/images/usercenter/head-bg1.jpg" alt="">
+            <div class="dl">
+
+            </div>
 
             <div class="lb">
                 <a href="">关注院校</a>
@@ -95,30 +118,45 @@
 
 
         <div class="col-lg-9">
-            <p style="font-size: 24px;margin-left: 30px;margin-top: 20px">我的测评</p>
-            <hr style="width: 95%">
-            <p style="margin-left: 30px;">专业定位测评</p>
-            <hr style="width: 95%">
-            <p style="margin-left: 30px;">专业定位测评</p>
-            <hr style="width: 95%">
+            <table class="table table-hover" style="width: 90%;border: 1px solid #b0b0b0;margin: 20px 40px ">
 
-            <ul class="pagination pagination-lg" style="margin: 30px 290px">
-                <li ><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#" class="active">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul><br>
+                <thead>
+                <tr>
+                    <th>报考批次</th>
+                    <th>2019报考批次控制线</th>
+                    <th><input type="button" value="开始" style="background-color: #3889d4;border: none"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>本二批</td>
+                    <td>文科400，理科363</td>
+                    <td><input type="button" value="开始" style="background-color:#f9f9f9;border:1px solid black"></td>
+                </tr>
+                <tr>
+                    <td>本三批</td>
+                    <td>文科150，理科150</td>
+                    <td></td>
+                </tr>
 
+                </tbody>
+            </table>
 
-
-        </div>
-
+            <div class="sm">
+                <h5 class="pt10" style="margin-left: 20px;margin-top: 10px "><span class="glyphicon glyphicon-exclamation-sign"></span>重要提示：</h5>
+                <p>1、本系统依据历年院校录取数据提供高考志愿填报智能模拟功能，不等同于实际的网上填报志愿，建议考生在填报志愿时，结合本系统的推荐以完善志愿表；</p>
+                <p>2、2019年招生计划已更新；</p>
+                <p>3、2012-2018年各院校录取数据，参考各省市出版的填报指南以及各本专科院校的官网历年录取数据；</p>
+                <p>4、您正在使用的是陕西版，提供“普通类文理科本一批、本二批、专科批、”3个批次的志愿智能模拟功能，您可以按系统的重点填报提示选择适合自己的批 </p>
+                    <p>次模拟，也可直接选择自己关注的批次模拟；</p>
+                <p>5、在正式填报时，以教育考试院公布的最新招生计划为准；</p>
+                <p>6、若推荐院校招生计划数出现新增专业，会提示”新增专业“且历三年录取数据展示默认采用该院校最低录取分数线。</p>
+            </div>
 
     </div>
-    <footer class="ui inverted vertical segment m-padded-tb-massive" style="margin-top: 20px">
+
+    </div>
+    <footer class="ui inverted vertical segment m-padded-tb-massive" style="margin-top: 40px">
         <div class="ui center aligned container">
             <div class="ui inverted divided stackable grid">
                 <div class="three wide column">
@@ -149,8 +187,7 @@
         </div>
 
     </footer>
-</head>
-<body>
+
 
 </body>
 </html>

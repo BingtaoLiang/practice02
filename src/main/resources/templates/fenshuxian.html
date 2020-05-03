@@ -1,63 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta name="viewport" http-equiv="Content-Type"
-          content="text/html; charset=UTF-8;width=device-width, initial-scale=1"/>
-    <title>分数线查询</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/gaokao.css">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <meta charset="UTF-8">
+    <title>分数线</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="/css/me.css">
     <style>
-        body {
+        body{
             background-color: whitesmoke;
         }
+        .title {
+            margin-top: 10px;
+            /*margin-left: 280px;*/
+            text-align: center;
+        }
 
-        .cube {
-            width: 1250px;
-            height: 7232px;
-            background-color: #FFFFFF;
-            margin: 30px 40px;
+        .dropdown active{
+            background-color: #b0b0b0;
         }
 
 
-        .ss {
+
+
+
+        .ss{
             height: 80px;
 
         }
-
-        .cx {
-            width: 90%;
+        .cx{
+            width:90%;
             height: 100%;
             float: left;
 
         }
 
-        .cx img {
+        .cx img{
             width: 100%;
             margin-left: 35px;
         }
-
-        .sr {
+        .sr{
             float: left;
-            width: 720px;
+            width: 820px;
             height: 30px;
             margin-top: 25px;
             margin-left: 30px;
             border-radius: 0px;
         }
 
-        .btn {
-            float: left;
-            width: 100px;
-            height: 34px;
-            background-color: #3889d4;
-            margin-top: 26px;
-            margin-left: 15px;
-            border: none;
-            border-radius: 0px;
-        }
+
 
 
         .zd a {
@@ -69,241 +62,73 @@
         }
 
 
-        .con {
-            /*border: 1px solid #000;*/
-            /*padding: 10px;*/
-            width: 62px;
-            height: 50px;
-            background-color: #42495d;
-            float: right;
-            position: fixed;
-            bottom: 62px;
-            right: 0px;
-            font-size: 15px;
-            font-weight: bold;
-            color: #b0b0b0;
-        }
 
-        .img {
-            display: none;
-            width: 50px;
-            height: 50px;
-        }
-
-        .con:hover > .img {
-            display: block;
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            bottom: 0;
-            right: 43px;
-
-            z-index: 30;
-        }
     </style>
 </head>
-
 <body>
-<!--<div class="title1">-->
-<!--    <div class="title">-->
-<!--        <div class="heading-spotlight">-->
-<!--            <a href="/">-->
-<!--                <img src="http://img3.youzy.cn/content/media/thumbs/p00208392.png" height="80" width="358">-->
-<!--            </a>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div style="display: inline-block;float: right;margin-top: 22px">-->
-<!--        <form style="float: left;margin-top: 3px">-->
-<!--            <input type="txt_zip" style="float: left" placeholder="找大学/查专业">-->
-<!--        </form>-->
-<!--        <a href="/denglu" style="float: left">-->
-<!--            <button class="vipbutton">登录</button>-->
-
-<!--        </a>-->
-<!--        <a href="/register" style="float: left">-->
-<!--            <button class="vipbutton">注册</button>-->
-<!--        </a>-->
-
-<!--    </div>-->
-
-
-<!--    <div class="top">-->
-<!--        <div class="top_content"> 志愿填报专家</div>-->
-<!--        <div class="heading-navbar">-->
-
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/">首页</a></span>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/xingaokao">新高考》</a></span>-->
-<!--                <div class="dropdown-content">-->
-<!--                    <a href="/zixun">高考资讯</a>-->
-<!--                    <br>-->
-<!--                    <a>完整智能模式</a>-->
-<!--                    <br>-->
-<!--                    <a href="/chaxun">根据大学选专业</a>-->
-<!--                    <br>-->
-<!--                    <a>根据专业选科目</a>-->
-<!--                    <br>-->
-<!--                    <a>根据科目选专业</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/ceshi">学业测评</a></span>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/yijiantianbao">智能填报》</a></span>-->
-<!--                <div class="dropdown-content" style="width: 200px">-->
-<!--                    <div class="lf" style="width: 40%;float: left">-->
-<!--                        <p>查</p>-->
-<!--                        <a href="/majors/Homepage">查专业</a>-->
-<!--                        <br>-->
-<!--                        <a href="/schoolHomepage">找大学</a> <br>-->
-<!--                        <a href="/weici">位次查询</a> <br>-->
-<!--                        <a href="/fenshuxian">分数线</a> <br>-->
-<!--                        <a>提前批</a> <br>-->
-<!--                        <a>看职业</a> <br>-->
-<!--                        <a href="/picixian">批次线</a> <br>-->
-
-<!--                    </div>-->
-<!--                    <div class="ri" style="width: 60%;float: left"></div>-->
-<!--                    <p>填</p>-->
-<!--                    <a href="/yijiantianbao">一键填报</a> <br>-->
-<!--                    <a href="/1dui1">专家一对一填报</a> <br>-->
-<!--                    <a href="/yijiantianbao">院线优先填报</a> <br>-->
-<!--                    <a href="/yijiantianbao">专业优先填报</a> <br>-->
-<!--                    <a href="/yijiantianbao">自主填报</a> <br>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/jiangtang">课堂》</a></span>-->
-<!--                <div class="dropdown-content" style="width: 300px">-->
-<!--                    <div class="lf" style="width: 30%;float: left">-->
-<!--                        <p>讲堂</p>-->
-
-
-<!--                    </div>-->
-<!--                    <div class="lf" style="width: 30%;float: left">-->
-<!--                        <a href="/ketang">课程</a><br>-->
-<!--                        <a>语文</a>-->
-<!--                        <a>数学</a> <br>-->
-<!--                        <a>英语</a>-->
-<!--                        <a>生物</a> <br>-->
-<!--                        <a>历史</a>-->
-<!--                        <a>地理</a> <br>-->
-<!--                        <a>物理</a>-->
-<!--                        <a>政治</a> <br>-->
-<!--                        <a>化学</a>-->
-
-<!--                    </div>-->
-<!--                    <div class="ri" style="width: 30%;float: left"></div>-->
-<!--                    <p href="/kaoshi">试题》</p>-->
-<!--                    <a>模拟试题</a> <br>-->
-<!--                    <a>高考真题</a> <br>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/fuwu">服务</a></span>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/zixunshi">咨询师</a></span>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </div>-->
-
-<!--</div>-->
 
 <div th:insert="navigation :: nav"></div>
+<ul class="breadcrumb" style="margin-top: -20px;background-color: white">
+    <span class="glyphicon glyphicon-pawn"></span>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">分数线</a></li>
+
+</ul>
 
 
-<div class="cube">
+<div class="container" style="background-color: #FFFFFF">
 
     <div class="cx">
-        <p style="font-size: 24px;margin-left: 30px">||分数线查询</p>
+        <p style="font-size: 24px;margin-left: 30px;margin-top: 20px"><span class="glyphicon glyphicon-menu-hamburger"></span>分数线查询</p>
         <div class="ss">
-            <form action="/scorelines">
-                <input class="sr" type="text" name="schoolName" style="float: left" placeholder="输入关键词">
-                <input class="btn" type="submit" style="float: left" value="搜索">
-                <input class="btn" type="button" style="float: left;background-color: #cccccc" value="省控线">
+            <form action="">
+                <input  class="sr" type="text" style="float: left" placeholder="输入关键词">
+                <input  class="btn" type="button"  style="float: left;margin: 23px 5px;width:80px" value="搜索">
+                <input  class="btn" type="button" style="float: left;background-color: #cccccc;width:80px;margin: 23px 0px" value="省控线">
             </form>
         </div>
 
         <img src="//staticv3.youzy.cn/images/scorelines/exp-js-1.jpg" alt="">
         <img src="//staticv3.youzy.cn/images/scorelines/exp-js-2.jpg" alt="">
         <img src="//staticv3.youzy.cn/images/scorelines/exp-js-3.jpg" alt="">
-    </div>
-
-    <div class="container-fluid table-responsive">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th style="text-align: center">年份</th>
-                <th style="text-align: center">招生批次</th>
-                <th style="text-align: center">最低分</th>
-                <th style="text-align: center">最低位次</th>
-            </tr>
-            </thead>
-
-            <tbody th:each="scoreline:${scorelines}">
-            <tr>
-                <td style="vertical-align: middle"><span th:text="${scoreline.year}"></span></td>
-                <td style="vertical-align: middle"><span th:text="${scoreline.batch}==1?'本科一批':'本科二批'"></span></td>
-                <td style="vertical-align: middle"><span th:text="${scoreline.minScore}"></span></td>
-                <td style="vertical-align: middle"><span th:text="${scoreline.minRank}"></span></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-</div>
-
-
-<div class="con"><p>微信咨询</p>
-    <img class="img" src="http://img3.youzy.cn/content/media/thumbs/p00215513.jpeg"/>
-</div>
-<div class="zd">
-
-    <a href="#" name="ding" style="float: right;position:fixed;bottom:0;right:0;">回到顶部</a><br/>
-</div>
-<div class="page-footer">
-    <div class="container">
-        <ul class="ts">
-            <li>
-                <a href="">关于我们
-
-                </a>
-
-            </li>
-            <li>
-                <a href="">联系我们</a>
-            </li>
-            <li>
-                <a href=""><i class="iconfont icon-tian"></i>法律声明</a>
-            </li>
-            <!--            <li>-->
-            <!--                <a href=""><i class="iconfont icon-lipinl"></i>4维修服务</a>-->
-            <!--            </li>-->
-            <li>
-                <a>服务热线： 18629648756</a>
-                <br><a>营业时间： 9:00~21:00</a>
-
-            </li>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h>UP志愿专家 西安阿谱云教育科技有限公司版权所有 陕ICP备
-                <br>
-                20000936号 © 2012- 2020
-            </h>
-        </ul>
-
 
     </div>
+
+
+
+
 </div>
+<br>
+<footer class="ui inverted vertical segment m-padded-tb-massive" style="margin-top: 20px">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced " >关于我们</h4>
+
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我们</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">服务热线： 18629648756</a>
+                    <a href="#" class="item m-text-thin">营业时间： 9:00~21:00</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">法律声明</h4>
+
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">UP志愿专家 西安阿谱云教育科技有限公司版权所有陕ICP备20000936号 © 2012- 2020</p>
+    </div>
+
+</footer>
 </body>
 </html>

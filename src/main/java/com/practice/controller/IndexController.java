@@ -9,7 +9,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index() {
-        return "top";
+        return "new";
     }
 
     @GetMapping("/top")
@@ -27,9 +27,9 @@ public class IndexController {
         return "xingaokao";
     }
 
-    @GetMapping("/ceshi")
-    public String ceshi() {
-        return "ceshi";
+    @GetMapping("/xueyeceping")
+    public String xueyeceping() {
+        return "xueyeceping";
     }
 
     @GetMapping("/jiangtang")
@@ -37,9 +37,9 @@ public class IndexController {
         return "jiangtang";
     }
 
-    @GetMapping("/ketang")
-    public String ketang() {
-        return "ketang";
+    @GetMapping("/kecheng")
+    public String kecheng() {
+        return "kecheng";
     }
 
     @GetMapping("/fuwu")
@@ -92,9 +92,9 @@ public class IndexController {
         return "picixian";
     }
 
-    @GetMapping("/yijiantianbao")
-    public String yijiantianbao() {
-        return "yijiantianbao";
+    @GetMapping("/zhinengtianbao")
+    public String zhinengtianbao() {
+        return "zhinengtianbao";
     }
 
     @GetMapping("/1dui1")

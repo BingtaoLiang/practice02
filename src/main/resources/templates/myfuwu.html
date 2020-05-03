@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>我的测评</title>
-
+    <title>我的服务</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -24,6 +23,28 @@
             background-color: #b0b0b0;
         }
 
+        .cube {
+            width: 1250px;
+            height: 660px;
+            background-color: whitesmoke ;
+            margin: 30px 40px;
+        }
+
+
+
+
+        .gr{
+            width: 20%;
+            height: 100%;
+            background-color:#FFFFFF ;
+            float: left;
+            margin-left: 5px;
+
+        }
+
+        .gr img{
+            width: 100%;
+        }
 
 
         .lb{
@@ -63,10 +84,11 @@
 
     </ul>
 
-    <div class="container" style="background-color: #FFFFFF;width: 1260px;height: 630px">
+    <div class="container" style="background-color:#FFFFFF;width: 1260px;height: 640px">
 
         <div class="col-lg-3" style="margin-left: -30px">
             <img src="http://staticv2.youzy.cn/images/usercenter/head-bg1.jpg" alt="">
+
 
             <div class="lb">
                 <a href="">关注院校</a>
@@ -94,28 +116,20 @@
 
 
 
-        <div class="col-lg-9">
-            <p style="font-size: 24px;margin-left: 30px;margin-top: 20px">我的测评</p>
-            <hr style="width: 95%">
-            <p style="margin-left: 30px;">专业定位测评</p>
-            <hr style="width: 95%">
-            <p style="margin-left: 30px;">专业定位测评</p>
-            <hr style="width: 95%">
-
-            <ul class="pagination pagination-lg" style="margin: 30px 290px">
-                <li ><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#" class="active">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul><br>
-
-
+        <div class="col-lg-9"   >
+           <h2 style="margin: 30px 40px">我的服务</h2>
+            <div class="media" style="margin: 50px 100px">
+                <div class="media-left">
+                    <img src="http://staticv2.youzy.cn/images/usercenter/cry.jpg" class="media-object" style="">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">友情提醒</h4>
+                    <p>你还没有任何购买记录</p>
+                    <button type="button" class="btn btn-primary"><a href="fuwu.html" style="color: #333333">购买服务</a></button>
+                </div>
+            </div>
 
         </div>
-
 
     </div>
     <footer class="ui inverted vertical segment m-padded-tb-massive" style="margin-top: 20px">

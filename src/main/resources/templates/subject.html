@@ -1,460 +1,251 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta name="viewport" http-equiv="Content-Type"
-          content="text/html; charset=UTF-8;width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
     <title>课堂</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/gaokao.css">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
-
-
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
     <style>
         body{
             background-color: whitesmoke;
         }
-
-        .first{
-            width: 1260px;
-            height: 470px;
-            margin:30px 30px;
-            background-color: #FFFFFF;
+        .title {
+            margin-top: 10px;
+            /*margin-left: 280px;*/
+            text-align: center;
         }
 
-        .sp{
-            width: 70%;
-            height: 420px;
-            margin: 30px 20px;
-            background-color: #FFFFFF;
-            float: left;
+
+        .dropdown active{
+            background-color: #b0b0b0;
         }
 
-        .sp img{
-            width: 100%;
-            height: 100%;
 
-        }
 
-       .you{
-           width: 24%;
-           height: 420px;
-           margin: 30px 10px;
-           background-color: #f9f9f9;
-           float: left;
-       }
 
-        .icon{
+        .icon {
             width: 100%;
             height: 100px;
-            background-color:  #f9f9f9;
-
-        }
-
-
-        .icon a{
-            float: left;
-            width: 88px;
-            height: 70%;
-            margin-top:15px ;
-        }
-
-        /*.tea{*/
-        /*    height: 78%;*/
-        /*    width: 100%;*/
-        /*    background-color: #008888;*/
-        /*}*/
-        .pic{
-            display : inline-block;
-            padding: 0;
-            width: 100%;
-            height: 47px;
-            float: left;
-
-            margin: 15px 15px;
-            /*background-color: chocolate;*/
-        }
-
-        .pic img{
-            width: 20%;
-            display: flex;
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            float:left;
-
-        }
-
-
-        .intro p{
-            width:60%;
-            margin-left:45px;
-            margin-top: 2px;
-        }
-
-        .intro input{
-            width: 70px;
-            float: right;
-            margin-top: -60px;
-            margin-right: 50px;
-            background-color: #008888;
-        }
-
-        .jt{
-            width: 1260px;
-            height: 560px;
             background-color: #FFFFFF;
-            margin:30px 30px;
+
+
         }
 
-        .subject{
-            margin: 10px 25px;
-            width: 21%;
-            height: 210px;
+
+        .icon a {
             float: left;
-            /*background-color: #3889d4;*/
-        }
-
-        .subject img{
-            width: 270px;
-            margin-left: -7px;
-            height: 80%;
-
+            width: 80px;
+            height: 70%;
+            margin-top: 15px;
+            margin-left: 15px;
 
         }
-        .edge p{
-            width: 50px;
-            height: 20px;
-            margin-top: 0px;
-            border-radius: 25px;
-            text-align: center;
-            background-color: #72cd68;
-            font-size: 14px;
-        }
-
-        .zd a{
-            width: 50px;
-            height: 50px;
-            background-color: #42495d;
-            color: #b0b0b0;
-            font-size: 15px;
-        }
 
 
 
-        .con {
-            /*border: 1px solid #000;*/
-            /*padding: 10px;*/
-            width:62px;
-            height: 50px;
-            background-color: #42495d;
-            float: right;
-            position:fixed;
-            bottom:62px;
-            right:0px;
-            font-size: 15px;
-            font-weight:bold;
-            color: #b0b0b0;
-        }
-        .img {
-            display: none;
-            width:50px;
-            height: 50px;
-        }
-        .con:hover > .img {
-            display: block;
-            width:200px;
-            height: 200px;
-            position:absolute;
-            bottom: 0;
-            right:43px;
 
-            z-index: 30;
-        }
+
+
 
     </style>
 </head>
 <body>
-
-<!--<div class="title1">-->
-<!--    <div class="title">-->
-<!--        <div class="heading-spotlight">-->
-<!--            <a href="/">-->
-<!--                <img src="http://img3.youzy.cn/content/media/thumbs/p00208392.png" height="80" width="358">-->
-<!--            </a>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div  style="display: inline-block;float: right;margin-top: 22px">-->
-<!--        <form style="float: left;margin-top: 3px">-->
-<!--            <input type="txt_zip"  style="float: left" placeholder="找大学/查专业" >-->
-<!--        </form>-->
-<!--        <a href="/denglu" style="float: left">-->
-<!--            <button class="vipbutton" >登录</button>-->
-
-<!--        </a>-->
-<!--        <a href="/register" style="float: left">-->
-<!--            <button class="vipbutton" >注册</button>-->
-<!--        </a>-->
-
-<!--    </div>-->
-
-
-<!--    <div class="top" >-->
-<!--        <div class="top_content"> 志愿填报专家</div>-->
-<!--        <div class="heading-navbar">-->
-
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/">首页</a></span>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/xingaokao">新高考》</a></span>-->
-<!--                <div class="dropdown-content" >-->
-<!--                    <a href="/zixun">高考资讯</a>-->
-<!--                    <br>-->
-<!--                    <a>完整智能模式</a>-->
-<!--                    <br>-->
-<!--                    <a href="/chaxun">根据大学选专业</a>-->
-<!--                    <br>-->
-<!--                    <a>根据专业选科目</a>-->
-<!--                    <br>-->
-<!--                    <a>根据科目选专业</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/ceshi">学业测评</a></span>-->
-<!--            </div>-->
-<!--            <div class="dropdown" >-->
-<!--                <span><a href="/yijiantianbao">智能填报》</a></span>-->
-<!--                <div class="dropdown-content" style="width: 200px">-->
-<!--                    <div class="lf" style="width: 40%;float: left">-->
-<!--                        <p>查</p>-->
-<!--                        <a href="/majors/Homepage">查专业</a>-->
-<!--                        <br>-->
-<!--                        <a href="/schoolHomepage">找大学</a> <br>-->
-<!--                        <a href="/weici">位次查询</a> <br>-->
-<!--                        <a href="/fenshuxian">分数线</a> <br>-->
-<!--                        <a>提前批</a> <br>-->
-<!--                        <a>看职业</a> <br>-->
-<!--                        <a href="/picixian">批次线</a> <br>-->
-
-<!--                    </div>-->
-<!--                    <div class="ri" style="width: 60%;float: left"></div>-->
-<!--                    <p>填</p>-->
-<!--                    <a href="/yijiantianbao">一键填报</a> <br>-->
-<!--                    <a href="/1dui1">专家一对一填报</a> <br>-->
-<!--                    <a href="/yijiantianbao">院线优先填报</a> <br>-->
-<!--                    <a href="/yijiantianbao">专业优先填报</a> <br>-->
-<!--                    <a href="/yijiantianbao">自主填报</a> <br>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/jiangtang">课堂》</a></span>-->
-<!--                <div class="dropdown-content" style="width: 300px">-->
-<!--                    <div class="lf" style="width: 30%;float: left">-->
-<!--                        <p>讲堂</p>-->
-
-
-<!--                    </div>-->
-<!--                    <div class="lf" style="width: 30%;float: left">-->
-<!--                        <a href="/ketang">课程</a><br>-->
-<!--                        <a>语文</a>-->
-<!--                        <a>数学</a> <br>-->
-<!--                        <a>英语</a>-->
-<!--                        <a>生物</a> <br>-->
-<!--                        <a>历史</a>-->
-<!--                        <a>地理</a> <br>-->
-<!--                        <a>物理</a>-->
-<!--                        <a>政治</a> <br>-->
-<!--                        <a>化学</a>-->
-
-<!--                    </div>-->
-<!--                    <div class="ri" style="width: 30%;float: left"></div>-->
-<!--                    <p href="/kaoshi">试题》</p>-->
-<!--                    <a>模拟试题</a> <br>-->
-<!--                    <a>高考真题</a> <br>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/fuwu">服务</a></span>-->
-<!--            </div>-->
-<!--            <div class="dropdown">-->
-<!--                <span><a href="/zixunshi">咨询师</a></span>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </div>-->
-
-<!--</div>-->
-
 <div th:insert="navigation :: nav"></div>
 
-<div class="first">
-    <div class="sp">
-        <img src="//staticv2.youzy.cn/images/course/nocourse.jpg" >
+<ul class="breadcrumb" style="margin-top: -20px;background-color: white">
+    <span class="glyphicon glyphicon-pawn"></span>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">课堂</a></li>
+
+</ul>
+
+<div class="container" style="background-color: #FFFFFF;width: 1260px;height:480px; ">
+    <div class="col-lg-8" >
+        <img style="margin: 10px 5px;height: 440px;width: 770px" src="//staticv2.youzy.cn/images/course/nocourse.jpg">
     </div>
-    <div class="you">
-       <div class="icon">
-           <a href="/area"><img src="//staticv3-pre.youzy.cn/ToB.PC/images/usercenter/appsquare/icons/1.png">
-               <p style="font-size: 12px">找大学</p></a>
-           <a href="/majors"><img src="//staticv3-pre.youzy.cn/ToB.PC/images/usercenter/appsquare/icons/2.png" style="margin-top: -6px">
-               <p style="font-size: 12px">查专业</p></a>
-           <a href=""><img src="//staticv3-pre.youzy.cn/ToB.PC/images/usercenter/appsquare/icons/3.png">
-               <p style="font-size: 12px;margin-top: 15px" >分数线</p></a>
-       </div>
+    <div class="col-lg-4" >
+        <p style="margin-top:20px;margin-left:30px;font-size: 24px"><span class="glyphicon glyphicon-menu-hamburger"></span>百宝箱</p>
+        <div class="icon">
 
-        <div class="pic">
-                <div > <img src="http://img3.youzy.cn/content/media/thumbs/p00212161.jpeg" width="60" height="60" style="vertical-align:middle" ></div>
+            <a href=""><img style="margin-left: 20px" src="//staticv3-pre.youzy.cn/ToB.PC/images/usercenter/appsquare/icons/1.png">
+                <p style="font-size: 12px;margin-top: 10px;margin-left: 20px">找大学</p>  </a>
 
-                <div class="intro">
-                    <p style="font-size: 18px;">孙老师</p>
-                    <p style="font-size: 10px;color: #282c3a;">志愿填报,高招政策,学业规划</p>
-                    <input type="button" value="预约">
+            <a href=""><img style="margin-left: 20px" src="//staticv3-pre.youzy.cn/ToB.PC/images/usercenter/appsquare/icons/2.png"
+                            style="margin-top: -6px"> <p style="font-size: 12px;margin-top:7px;margin-left: 20px">查专业</p>
+            </a>
+
+            <a href=""><img style="margin-left: 20px" src="//staticv3-pre.youzy.cn/ToB.PC/images/usercenter/appsquare/icons/3.png">
+                <p style="font-size: 12px;margin-top: 15px;;margin-left: 20px">分数线</p></a>
+        </div>
+
+        <div class="teach">
+            <div>
+                <p style="margin-bottom:0px;margin-left:20px;font-size: 24px"><span class="glyphicon glyphicon-menu-hamburger"></span> 咨询师咨询</p>
+                <hr>
+                <div class="media" style="margin-top: 10px">
+                    <div class="media-left">
+                        <img src="http://img3.youzy.cn/content/media/thumbs/p00212161.jpeg" class="media-object" style="width:60px;border-radius: 25px">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">孙老师</h4>
+                        <input type="button" value="预约" style="float: right">
+                        <p>志愿填报,高招政策,学业规划</p>
+
+                    </div>
+                </div>
+                <div class="media" style="margin-top: 20px">
+                    <div class="media-left">
+                        <img src="http://img3.youzy.cn/content/media/thumbs/p00212356.jpeg" class="media-object" style="width:60px;border-radius: 25px">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">杜老师</h4>
+                        <input type="button" value="预约" style="float: right">
+                        <p>志愿填报,高招政策,学业规划</p>
+
+                    </div>
+                </div>
+                <div class="media" style="margin-top: 20px">
+                    <div class="media-left">
+                        <img src="http://img3.youzy.cn/content/media/thumbs/p00212358.jpeg" class="media-object" style="width:60px;border-radius: 25px">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">杨老师</h4>
+                        <input type="button" value="预约" style="float: right">
+                        <p>志愿填报,高招政策,学业规划</p>
+
+                    </div>
                 </div>
 
 
+
+
+
             </div>
-        <div class="pic">
-            <div > <img src="http://img3.youzy.cn/content/media/thumbs/p00212356.jpeg" width="60" height="60" style="vertical-align:middle" ></div>
-            <div class="intro">
-                <p style="font-size: 18px;">杜老师</p>
-                <p style="font-size: 10px;color: #282c3a;">志愿填报,高招政策,学业规划</p>
-                <input type="button" value="预约">
-            </div>
-
-
-        </div>
-        <div class="pic">
-            <div > <img src="http://img3.youzy.cn/content/media/thumbs/p00212358.jpeg" width="60" height="60" style="vertical-align:middle" ></div>
-            <div class="intro">
-                <p style="font-size: 18px;">杨老师</p>
-                <p style="font-size: 10px;color: #282c3a;">志愿填报,高招政策,学业规划</p>
-                <input type="button" value="预约">
-            </div>
-
-
-        </div>
-        <div class="pic">
-            <div> <img src="http://img3.youzy.cn/content/media/thumbs/p00213061.jpeg" width="60" height="60" style="vertical-align:middle" ></div>
-            <div class="intro">
-                <p style="font-size: 18px;">古老师</p>
-                <p style="font-size: 10px;color: #282c3a;">志愿填报,高招政策,学业规划</p>
-                <input type="button" value="预约">
-            </div>
-
-
         </div>
 
-        </div>
+
     </div>
+</div>
 
-<div class="jt">
+<div class="container" style="background-color: #FFFFFF;width: 1260px;margin-top: 30px">
     <p style="padding-top:20px;margin-left:15px;font-size: 26px">||热门课程</p>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/12.jpg" ></a>
-        <a style="font-size: 14px">省控线与省批线</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/5.jpg" ></a>
-        <a style="font-size: 14px">服从专业调剂</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/10.jpg" ></a>
-        <a style="font-size: 14px">分数线和投档线</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/9.jpg" ></a>
-        <a style="font-size: 14px">分数清、专业清、专业级差区别</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/8.jpg" ></a>
-        <a style="font-size: 14px">专业级差</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/7.jpg" ></a>
-        <a style="font-size: 14px">专业清</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/6.jpg" ></a>
-        <a style="font-size: 14px">分数清</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-    <div class="subject">
-        <a href="" ><img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/4.jpg" ></a>
-        <a style="font-size: 14px">大小年现象</a>
-        <br>
-        <span class="edge" ><p>免费</p></span>
-    </div>
-</div>
-
-
-</div>
-
-    </div>
-
-<div class="con"><p >微信咨询</p>
-    <img class="img" src="http://img3.youzy.cn/content/media/thumbs/p00215513.jpeg" />
-</div>
-<div class="zd">
-
-    <a href="#" name="ding" style="float: right;position:fixed;bottom:0;right:0;" >回到顶部</a><br/>
-</div>
-
-
-
-<div class="page-footer">
-    <div class="container" >
-        <ul class="ts">
-            <li>
-                <a href="">关于我们
-
-                </a>
-
-            </li>
-            <li>
-                <a href="">联系我们</a>
-            </li>
-            <li>
-                <a href=""><i class="iconfont icon-tian"></i>法律声明</a>
-            </li>
-            <!--            <li>-->
-            <!--                <a href=""><i class="iconfont icon-lipinl"></i>4维修服务</a>-->
-            <!--            </li>-->
-            <li>
-                <a>服务热线： 18629648756</a>
-                <br><a>营业时间： 9:00~21:00</a>
-
-            </li>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h>UP志愿专家    西安阿谱云教育科技有限公司版权所有 陕ICP备
-                <br>
-                20000936号 © 2012- 2020</h>
-        </ul>
-
-
-
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/12.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>省控线与省批线</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/5.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>服从专业调剂</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/10.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>分数线和投档线</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/9.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>分数清、专业清、专业级差区别</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/8.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>专业级差</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/7.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>专业清</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/6.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>分数清</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="http://staticv2.youzy.cn/imagestob/temp-pic/classrooms/4.jpg"
+                     alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h5>大小年现象</h5>
+                    <span class="label label-success">免费</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-</div>
+<footer class="ui inverted vertical segment m-padded-tb-massive" style="margin-top: 40px">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced " >关于我们</h4>
+
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我们</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">服务热线： 18629648756</a>
+                    <a href="#" class="item m-text-thin">营业时间： 9:00~21:00</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">法律声明</h4>
+
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">UP志愿专家 西安阿谱云教育科技有限公司版权所有陕ICP备20000936号 © 2012- 2020</p>
+    </div>
+
+</footer>
 </body>
 </html>

@@ -78,24 +78,12 @@
         select *
         from zhiyuan.school
         <where>
-            <!--            <if test="split != null and split != ''">-->
-            <!--                areaid in-->
-            <!--                <foreach collection="split" item="areaId" open="(" separator="," close=")">-->
-            <!--                    #{areaId}-->
-            <!--                </foreach>-->
-            <!--            </if>-->
-
             <if test="areaId != null and areaId[0] != -1 ">
                 areaid in
                 <foreach collection="areaId" item="areaId" open="(" separator="," close=")">
                     #{areaId}
                 </foreach>
             </if>
-
-            <!--            <if test="areaId !=null and areaId!=''">-->
-            <!--                areaId =#{areaId}-->
-            <!--            </if>-->
-
             <if test="type != null and type != ''">
                 and type=#{type}
             </if>
@@ -108,9 +96,9 @@
             <if test="isdoublefirstclass != null">
                 and isDoubleFirstClass=#{isdoublefirstclass}
             </if>
-
         </where>
         order by `rank`
+        limit #{offset},#{size}
     </select>
 
 
@@ -118,6 +106,30 @@
         select *
         from zhiyuan.school
         where name = #{schoolname}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(1) from zhiyuan.school
+        <where>
+            <if test="areaId != null and areaId[0] != -1 ">
+                areaid in
+                <foreach collection="areaId" item="areaId" open="(" separator="," close=")">
+                    #{areaId}
+                </foreach>
+            </if>
+            <if test="type != null and type != ''">
+                and type=#{type}
+            </if>
+            <if test="is985 != null and is985 != ''">
+                and is985 =#{is985}
+            </if>
+            <if test="is211 != null and is211 != ''">
+                and is211=#{is211}
+            </if>
+            <if test="isdoublefirstclass != null">
+                and isDoubleFirstClass=#{isdoublefirstclass}
+            </if>
+        </where>
     </select>
 
 
