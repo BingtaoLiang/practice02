@@ -7,6 +7,7 @@ java -jar -Dspring.profiles.active=production target/practice-0.0.1-SNAPSHOT.jar
 - JDK
 - Maven
 - MySQL
+- 如果在服务器上安装mysql数据库的话，建议安装宝塔面板进行操作。
 ##步骤
 - yum update
 - yum install git 
@@ -25,7 +26,7 @@ java -jar -Dspring.profiles.active=production target/practice-0.0.1-SNAPSHOT.jar
 - git pull
 - mvn package
 - java -jar -Dspring.profiles.active=production target/打的jar包
-- nohup java -jar -Dspring.profiles.active=production target/打的jar包 &   //不挂断执行命令
+- nohup java -jar -Dspring.profiles.active=production target/打的jar包  >/dev/null 2>&1 &   //不挂断执行命令
 2. 克隆代码到本地  
 3. 运行命令创建数据库脚本
 ```sh
