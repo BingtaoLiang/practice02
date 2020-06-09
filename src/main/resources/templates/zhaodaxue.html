@@ -180,7 +180,7 @@
                             </li>
 
                             <li th:if="${allschool.showNext}">
-                                <a th:href="@{/schoolHomepage(page=${allschool.page + 1},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
+                                <a th:href="@{schoolHomepage(page=${allschool.page + 1},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
                                    aria-label="Next">
                                     <span aria-hidden="true">&gt;</span>
                                 </a>
