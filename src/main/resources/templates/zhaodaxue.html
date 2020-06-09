@@ -161,28 +161,33 @@
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li th:if="${allschool.showFirstPage}">
-                                <a th:href="@{/schoolHomepage(page=1,areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}" aria-label="FirstPage">
+                                <a th:href="@{/schoolHomepage(page=1,areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
+                                   aria-label="FirstPage">
                                     <span aria-hidden="true">&laquo;</span>
-                                </a>
+                                </a >
                             </li>
                             <li th:if="${allschool.showPrevious}">
-                                <a th:href="@{/schoolHomepage(page=${allschool.page - 1},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}" aria-label="Previous">
+                                <a th:href="@{/schoolHomepage(page=${allschool.page - 1},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
+                                   aria-label="Previous">
                                     <span aria-hidden="true">&lt;</span>
                                 </a>
                             </li>
 
 
                             <li th:each="page : ${allschool.pages}" th:class="${allschool.page == page}? 'active' : ''">
-                                <a th:href="@{/schoolHomepage(page=${page},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}" th:text="${page}"></a>
+                                <a th:href="@{/schoolHomepage(page=${page},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
+                                   th:text="${page}"></a>
                             </li>
 
                             <li th:if="${allschool.showNext}">
-                                <a th:href="@{schoolHomepage/(page=${allschool.page + 1},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}" aria-label="Next">
+                                <a th:href="@{schoolHomepage/(page=${allschool.page + 1},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
+                                   aria-label="Next">
                                     <span aria-hidden="true">&gt;</span>
                                 </a>
                             </li>
                             <li th:if="${allschool.showEndPage}">
-                                <a th:href="@{/schoolHomepage(page=${allschool.totalPage},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}" aria-label="EndPage">
+                                <a th:href="@{/schoolHomepage(page=${allschool.totalPage},areaId=${areaId},type=${type},is211=${is211},is985=${is985},isdoublefirstclass=${isdoublefirstclass})}"
+                                   aria-label="EndPage">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>

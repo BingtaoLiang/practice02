@@ -99,7 +99,9 @@
         </where>
         order by `rank`
         limit #{offset},#{size}
+
     </select>
+
 
 
     <select id="findSchool" resultType="school">

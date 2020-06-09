@@ -2,9 +2,14 @@ package com.practice.controller;
 
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.practice.dto.PaginationDTO;
 import com.practice.dto.PaginationDTO;
 import com.practice.mapper.SchoolMapper;
 import com.practice.model.School;
+//import com.practice.service.SchoolService;
+import com.practice.model.User;
 import com.practice.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,18 +18,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 public class SchoolController {
 
-    @Autowired
-    private SchoolService schoolService;
+//    @Autowired
+//    private SchoolService schoolService;
 
     @Autowired
     private SchoolMapper schoolMapper;
 
+    @Autowired
+    private SchoolService schoolService;
 
 
     /**
@@ -62,10 +70,25 @@ public class SchoolController {
 //        }
 
 //        List<School> allSchool = schoolMapper.findAllSchool(areaId, type, is985, is211, isdoublefirstclass);
+
+
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        String strObject = "";
+//        //list转json
+//        try {
+//            strObject = objectMapper.writeValueAsString(allSchool);
+//            System.out.println(strObject);
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        }
+//
 //        model.addAttribute("allschool",allSchool);
 
 
+
         PaginationDTO allSchool = schoolService.list(page,size,areaId, type, is985, is211, isdoublefirstclass);
+
+
         model.addAttribute("allschool", allSchool);
         model.addAttribute("areaId", areaId);
         model.addAttribute("type", type);

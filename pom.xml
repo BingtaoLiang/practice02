@@ -114,7 +114,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>5.2.4</version>
                 <configuration>
-                    <url>jdbc:mysql://180.76.247.29:3306/zhiyuan?serverTimezone=GMT%2B8</url>
+                    <url>jdbc:mysql://180.76.52.59:3306/project_gaokao?serverTimezone=GMT%2B8</url>
                     <user>root</user>
                     <password>QQ@1607247596</password>
                 </configuration>
