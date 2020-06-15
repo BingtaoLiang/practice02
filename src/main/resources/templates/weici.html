@@ -7,7 +7,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="/static/css/me.css">
     <style>
         body{
             background-color: whitesmoke;
@@ -28,11 +28,11 @@
             width: 100%;
             height:120px;
 
+
         }
 
         .cj p{
             float: left;
-
         }
 
 
@@ -77,7 +77,20 @@
             font-size: 15px;
         }
 
+        .col-lg-10 {
+            margin: 50px 40px;
+            width: 1050px;
+            height: 100px;
+            border-style: dashed;
+            border-width: 1px;
+        }
 
+        .sm p {
+            font-size: 4px;
+            margin-left: 10px;
+            margin-top: 15px;
+            color: #42495d;
+        }
 
 
     </style>
@@ -94,36 +107,55 @@
 
 <div class="container" style="background-color: #FFFFFF;width: 1260px; height: 890px;">
 
-    <div class="cj">
-        <p style="font-size: 26px;margin: 80px 30px">我的位次</p>
-        <p style="font-size: 14px;margin: 94px 0px">成绩</p>
-        <p style="font-size: 14px;margin: 94px 10px">位次</p>
+    <div class="col-lg-12">
+        <p class="col-lg-2" style="font-size: 26px;margin: 45px 0px">我的位次</p>
+        <span class="col-lg-1" style="font-size: 14px;margin: 94px -70px" th:if="${score}!= null" th:text="${sort}==1 ? '理科 '+${score}:'文科 '+${score}"></span>
+        <span class="col-lg-1" style="font-size: 14px;margin: 94px 0px" th:if="${score}!= null" th:text="'位次： '+ ${rankLow}"></span>
     </div>
 
-
-
-
-    <div class="yg" >
-        <p  style="margin-left: -18px;">科类选择:</p>
-        <div style="margin-left: -30px">
-            <form action="" >
-
-                <label style="margin-left: -130px"><input type="radio" name="r" value="wen"/><span>文科</span></label>
-                <label style="margin-left: 20px"><input type="radio" name="r" value="li"/><span>理科</span></label>
-            </form>
-        </div>
-
-    </div>
-    <div class="yg"  >
-        <p  style="margin-left: -18px;">预估总分：</p>
-        <form action="">
-            <input class="se" type="text" name="search" class="blue-input" style="position: absolute;left: 170px">
-            <input class="bt" type="button" value="查找" style="position: absolute;left: 330px;margin-top: 0px">
+    <div class="row" style="margin-top: -70px">
+        <form action="/rankSearch" method="get" class="form-inline col-lg-12">
+            <div class="row">
+                <p style="float: left;font-size: 18px;margin-left: 30px" class="col-lg-2">科类选择:</p>
+                <div  style="float:left;margin-left:-90px;">
+                    <label class="radio-inline">
+                        <input type="radio" name="sort" id="inlineRadio1" value="1"> 理科
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="sort" id="inlineRadio2" value="2"> 文科
+                    </label>
+                </div>
+            </div>
+           <div class="row">
+<!--               <div  class="col-lg-10" style="float:left;margin-left:-90px;">-->
+               <div>
+                   <p style="float: left;font-size: 18px;margin-left: 30px" class="col-lg-2">预估总分:</p>
+                   <div class="form-group">
+                       <div class="input-group">
+                           <input type="text" class="form-control" name="score" id="exampleInputAmount" placeholder="请输入您的成绩...">
+                       </div>
+                       <button type="submit" class="btn btn-primary">查找</button>
+                   </div>
+<!--                   <button type="submit" class="btn btn-primary">查找</button>-->
+               </div>
+           </div>
         </form>
     </div>
 
 
-    <iframe id="youzy_part_view" src="//ia-pv4y.youzy.cn?p=af4f744668a5050fcb34bc057e2f8b46597d4e90f4d47391ee25b50418ef16c1baf7e4890420a7a1f3b3391460c80b90877e729ff234d950212a83a847bef39da467&amp;u=af4f675b72a11f04fc2885047e2f9194f0d78b47179929dae329a5380ae7279af0b0487ee4a52024e1b3391a72e0219e834678a8e564900b7e7691be03b8f48f91685263b8b63970ee26d2ada7f6bcc8eea1c3422fc7a61dacb72bc5d2836ed0cca651c23a5fc9062a8e2a79a0cfacd9ded2b77dc5cdb5c2cfd383f2e7e2d52656809cb4b9edefedee1447a5ea88424ac6db8b77e12588d66003666b05d819f6ffe30590b51ee893e5f3a902177e&amp;us=af4f6a416a9a08439260c4566f2783444c731f94e9c960b6f52b992e5bb847d6b9e22132e1ba6d68b8f178185dfa07b6883d27f1a27f861b3d30d4f644b1eba0b4777471f3e26321fb24c7751241200225e28342729af17bf2fa3ec3c99278fbedb268c35101d309238e2a62b2e38a9a8a83fc3ad58efbd5d584dceee9a9d61d40d0eabbb6e4cfebad444bf48ae23b1bc0c1c622e632b1d63a447c4d07db09e6f8ef1597af53bc93fdabf91e01510c3af1586bd3eeb476c97862954f8b1084ba20287522ba4512296063b9b6fa7fd44d748d18cae6025e467fb8c076d81d3e68e696d5ce90aa1e008eddcfadb7cc5fb5613a28ed6a9aebb4d51828d3a397023ce4a947c7dcbe8ce1fdb60bfa2dc1149c23a5545fcd525e1c9a668240ea14bbe7e70e2f200dc6bb1ac908c0417998efc26e6429f7cef5fbc35961602a3c2daf3e32f966d33358a623e7caebaa21&amp;tcode=af4f744668a5050fcb34bc057e2f8b46597d4e99e3da77daba74e07b40ae5181fa817460f4ea383ce0bd375f70e01f8d9f7a3ff3b57688156c37c2fd53babdd4f72c0b68&amp;toUrl=/rankSearch/index&amp;timestamp=1587707216362" style="width: 100%; height: 649px;" scrolling="no" frameborder="0"></iframe>
+    <div class="col-lg-12" style="float: left;font-size: 18px;margin-left: 30px;margin-top: 16px">
+        <span style="font-size: 18px">位次区间：<span th:text="${rankLow}"></span>-<span
+                th:text="${rankHigh}"></span></span>
+        <b style="font-size: 18px">建议位次：<span th:text="${rankLow}"></span></b>
+    </div>
+
+
+    <div class="col-lg-10">
+        <h6 class="pt10" style="margin-left: 5px;font-size: 14px;font-weight: bold ">重要提示：</h6>
+        <p style="font-size: 11px"> 1、位次查询结果根据2019年教育考试院发布录取位次计算；</p>
+        <p  style="font-size: 11px">2、在正式填报时，以教育考试院公布的高考成绩（位次）为准。</p>
+    </div>
+
 </div>
 
 <footer class="ui inverted vertical segment m-padded-tb-massive" style="margin-top: 40px">

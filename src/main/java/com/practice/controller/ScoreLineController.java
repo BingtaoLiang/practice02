@@ -59,6 +59,9 @@ public class ScoreLineController {
         rankByScoreHigh++;
         model.addAttribute("rankLow", rankByScoreLow);
         model.addAttribute("rankHigh", rankByScoreHigh);
+        model.addAttribute("score", score-1);
+        model.addAttribute("sort", sort);
+
         return "weici";
     }
 }

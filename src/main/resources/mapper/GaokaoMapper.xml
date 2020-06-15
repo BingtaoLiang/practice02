@@ -32,8 +32,12 @@
         SELECT *
         FROM `zhiyuan`.`gaokao` g,
              `zhiyuan`.`profession` p
-        where g.spname = p.proname
+#         where g.spname = p.proname
+        where g.spname like concat('%',p.proname,'%')
           and g.`name` = #{schoolName}
+        GROUP BY p.proname
+          order by min_section
+
     </select>
 
 

@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.practice.dto.PaginationDTO;
 import com.practice.dto.PaginationDTO;
 import com.practice.mapper.SchoolMapper;
+import com.practice.model.Gaokao;
+import com.practice.model.Profession;
 import com.practice.model.School;
 //import com.practice.service.SchoolService;
 import com.practice.model.User;
@@ -24,9 +26,6 @@ import java.util.List;
 
 @Controller
 public class SchoolController {
-
-//    @Autowired
-//    private SchoolService schoolService;
 
     @Autowired
     private SchoolMapper schoolMapper;
@@ -105,9 +104,9 @@ public class SchoolController {
     @RequestMapping("/schoolsearch")
     public String getSchoolByName(HttpServletRequest request, Model model) {
         String schoolname = request.getParameter("schoolname");
-        School school = schoolMapper.findSchool(schoolname);
-        model.addAttribute("school", school);
-        return "";
+        PaginationDTO schoolByName = schoolService.findSchoolByName(schoolname);
+        model.addAttribute("allschool", schoolByName);
+        return "zhaodaxue";
     }
 
     /*
@@ -117,19 +116,20 @@ public class SchoolController {
     @RequestMapping("/school/subject")
     public String getSchoolBySname(HttpServletRequest request, Model model) {
         String schoolName = request.getParameter("schoolName");
-        List<School> schoolProByName = schoolMapper.getSchoolByName(schoolName);
+        List<Profession> schoolProByName = schoolMapper.getSchoolByName(schoolName);
         model.addAttribute("schoolPros", schoolProByName);
-        return "chaxun";
+        return "school2profession";
     }
 
     /*
      * 根据专业名称查找开设该专业的学校
+     * 对应（根据专业选科目）
      * */
     @RequestMapping("/school/major/{proname}")
     public String getSchoolByPro(Model model, @PathVariable(name = "proname") String proname) {
-        List<School> schoolByPro = schoolMapper.getSchoolByPro(proname);
+        List<Gaokao> schoolByPro = schoolMapper.getSchoolByPro(proname);
         model.addAttribute("schoolList", schoolByPro);
-        return "";
+        return "profession2school";
     }
 
 }

@@ -124,12 +124,14 @@
         <div class="panel panel-default" style="width: 87%;margin-left: 47px;margin-top: 30px;border-color: white" th:each="major:${majors}">
             <!-- Default panel contents -->
             <div class="panel-heading" style="font-size: 24px;height: 60px" th:text="${major.major}"></div>
+<!--            <div class="panel-heading" style="font-size: 24px;height: 60px" >哲学</div>-->
             <div class="panel-body">
                 <p style=" font-size: 18px;margin-left: 10px" th:text="${major.subject}"></p>
+<!--                <p style=" font-size: 18px;margin-left: 10px" >哲学类</p>-->
             </div>
             <!-- List group -->
-            <ul class="list-group">
-                <li class="xueke" th:text="${major.proname}" >哲学</li>
+            <ul class="list-group" >
+                <li class="xueke"  th:text="${major.proname}" ></li>
             </ul>
         </div>
 
@@ -143,15 +145,8 @@
 <!--                <p style=" font-size: 18px;margin-left: 10px" >哲学类</p>-->
 <!--            </div>-->
 <!--            &lt;!&ndash; List group &ndash;&gt;-->
-<!--            <ul class="list-group">-->
-<!--                <li class="xueke"  >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
-<!--                <li class="xueke" >哲学</li>-->
+<!--            <ul class="list-group" th:each="major:${majors}">-->
+<!--                <li class="xueke" th:if="${major.pid} ge 1  and ${major.pid} le 4" th:text="${major.proname}">哲学</li>-->
 
 <!--            </ul>-->
 <!--        </div>-->

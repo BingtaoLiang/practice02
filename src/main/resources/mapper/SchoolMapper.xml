@@ -11,66 +11,43 @@
         where areaid = #{areaid}
     </select>
 
-    <select id="getSchoolByPro" resultType="School" parameterType="String">
-        select *
+    <select id="getSchoolByPro" resultType="Gaokao" parameterType="String">
+        select distinct name,spname
         from zhiyuan.gaokao
-        where spname = #{proname}
+        where spname like concat('%',#{proname},'%')
     </select>
 
 
     <resultMap id="getProBySchname" type="profession">
-        <result property="description" column="description"/>
-        <result property="subject" column="subject"/>
-        <result property="major" column="major"/>
-        <result property="pid" column="pid"/>
         <result property="proname" column="proname"/>
         <result property="timelength" column="timelength"/>
-        <result property="classes" column="classes"/>
-        <result property="job" column="job"/>
-        <result property="graduate" column="graduate"/>
-        <result property="code" column="code"/>
         <result property="sort" column="sort"/>
-        <collection property="schools" ofType="School" javaType="ArrayList">
+        <result property="pid" column="pid"/>
+        <association property="gaokao" javaType="Gaokao">
             <result property="scid" column="scid"/>
+            <result property="average" column="average"/>
+            <result property="year" column="year"/>
+            <result property="min" column="min"/>
+            <result property="min_section" column="min_section"/>
+            <result property="max" column="max"/>
+            <result property="local_province_name" column="local_province_name"/>
+            <result property="local_batch_name" column="local_batch_name"/>
+            <result property="spname" column="spname"/>
             <result property="name" column="name"/>
-            <result property="areaname" column="areaname"/>
-            <result property="areaid" column="areaid"/>
-            <result property="description" column="scdes"/>
-            <result property="acronym" column="acronym"/>
-            <result property="region" column="region"/>
-            <result property="reid" column="reid"/>
-            <result property="usedname" column="usedname"/>
-            <result property="foundingYear" column="foundingYear"/>
-            <result property="department" column="department"/>
-            <result property="iscombine" column="iscombine"/>
-            <result property="is985" column="is985"/>
-            <result property="is211" column="is211"/>
-            <result property="isDoubleFirstClass" column="isDoubleFirstClass"/>
-            <result property="firstClassNum" column="firstClassNum"/>
-            <result property="facultyNum" column="facultyNum"/>
-            <result property="academicianNum" column="academicianNum"/>
-            <result property="changjiangScholarNum" column="changjiangScholarNum"/>
-            <result property="teachersNum" column="teachersNum"/>
-            <result property="undergraProNum" column="undergraProNum"/>
-            <result property="postgraProNum" column="postgraProNum"/>
-            <result property="doctorProNum" column="doctorProNum"/>
-            <result property="mainLabNum" column="mainLabNum"/>
-            <result property="undergraEnrollNum" column="undergraEnrollNum"/>
-            <result property="postgraEnrollNum" column="postgraEnrollNum"/>
-            <result property="schoolWeb" column="schoolWeb"/>
-        </collection>
-
+            <result property="local_type_name" column="local_type_name"/>
+            <result property="proscore" column="proscore"/>
+            <result property="type" column="type"/>
+        </association>
     </resultMap>
 
     <select id="getSchoolByName" resultMap="getProBySchname">
-        select pro.*, sc.description scdes, sc.scid
+
+        select distinct pro.proname, g.*
         from zhiyuan.profession pro,
-             zhiyuan.school sc,
-#              zhiyuan.t_school_profession sc_pro
              zhiyuan.gaokao g
-        where g.scid = sc.scid
-          and g.spname = pro.proname
-          and sc.name = #{name}
+        where g.spname like concat('%', pro.proname, '%')
+          and g.name = #{schoolName}
+        GROUP BY pro.proname
     </select>
 
 
@@ -101,7 +78,6 @@
         limit #{offset},#{size}
 
     </select>
-
 
 
     <select id="findSchool" resultType="school">

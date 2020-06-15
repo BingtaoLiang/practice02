@@ -47,4 +47,10 @@ public class SchoolService {
         return  paginationDTO;
     }
 
+    public PaginationDTO findSchoolByName(String schoolname) {
+        PaginationDTO paginationDTO=new PaginationDTO();
+        List<School> school = schoolMapper.findSchool(schoolname);
+        paginationDTO.setSchools(school);
+        return paginationDTO;
+    }
 }

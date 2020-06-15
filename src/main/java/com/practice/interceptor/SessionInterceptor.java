@@ -38,29 +38,32 @@ public class SessionInterceptor implements HandlerInterceptor {
 //        return false;
 
 
-        Cookie[] cookies = request.getCookies();//服务器端获取客户端所有cookie
-        if (cookies != null && cookies.length != 0)
-            for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("token")) {
-                    String token = cookie.getValue();
-                    User user = userMapper.findByToken(token);
-                    if (user != null) {
-                        request.getSession().setAttribute("user", user);//获取session对象并设置session中的属性
-                    }
-                    break;
-                }
-            }
-
-        return true;
-
-
-
-//        Object user = request.getSession().getAttribute("user");
-//        if (user == null){
-//            request.getRequestDispatcher("/login").forward(request, response);
-//            return false;
-//        }
+//        Cookie[] cookies = request.getCookies();//服务器端获取客户端所有cookie
+//        if (cookies != null && cookies.length != 0)
+//            for (Cookie cookie : cookies) {
+//                if (cookie.getName().equals("token")) {
+//                    String token = cookie.getValue();
+//                    User user = userMapper.findByToken(token);
+//                    if (user != null) {
+//                        request.getSession().setAttribute("user", user);//获取session对象并设置session中的属性
+//                    }
+//                    break;
+//                }
+//            }
 //        return true;
+
+
+
+        Object user = request.getSession().getAttribute("user");
+        //获取session中的user参数，如果user为空，表示当前未登录，跳转回登录页面，否则放行访问
+        if (user == null){
+            request.setAttribute("msg","无权限，请先登录");
+            request.getRequestDispatcher("/denglu").forward(request, response);
+            return false;
+        }else{
+            return true;
+        }
+
     }
 
     @Override

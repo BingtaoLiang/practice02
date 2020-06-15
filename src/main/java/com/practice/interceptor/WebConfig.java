@@ -20,16 +20,20 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         List exclude = new ArrayList(); // 不拦截列表
         exclude.add("/");
-        exclude.add("/login");
+        exclude.add("/denglu");
         exclude.add("/addlogin");
         exclude.add("/logout");
         exclude.add("/register");
         exclude.add("/addregister");
         exclude.add("/sendcode");
         exclude.add("/phonelogin");
+        exclude.add("/css/**");
+        exclude.add("/fonts/**");
+        exclude.add("/js/**");
+        exclude.add("/docs/**");
 
-
-        registry.addInterceptor(sessionInterceptor).addPathPatterns("/**").excludePathPatterns(exclude);
+        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/**").excludePathPatterns(exclude);
+//
 //        registry.addInterceptor(sessionInterceptor).addPathPatterns("/**");
     }
 }

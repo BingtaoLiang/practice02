@@ -9,6 +9,7 @@
         select *
         from zhiyuan.schoolscore
         where name = #{name}
+        order by year DESC
     </select>
 
     <select id="getRankByScore" resultType="int">

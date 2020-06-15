@@ -49,6 +49,8 @@ public class Profession {
 
     private List<Gaokao> gaokaos;
 
+    private Gaokao gaokao;
+
 
 }
 
