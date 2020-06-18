@@ -53,29 +53,37 @@
         from zhiyuan.profession pro,
              zhiyuan.school sc,
 #              zhiyuan.t_school_profession sc_pro
-            zhiyuan.gaokao g
+             zhiyuan.gaokao g
         where g.scid = sc.scid
-          and g.spname=pro.proname
+          and g.spname = pro.proname
           and sc.scid = #{scid}
     </select>
 
 
     <select id="selectDistinctMajor" resultType="profession">
-        select distinct major, subject,  pid,proname,code
+        select distinct major, subject, pid, proname, code
         from zhiyuan.profession;
     </select>
 
-    <select id="selectByCode" resultType="profession" parameterType="String">
+    <select id="selectByPid" resultType="profession" parameterType="Integer">
         select *
         from zhiyuan.profession
-        where code = #{code}
+        where pid =#{pid}
     </select>
 
 
     <select id="getProfessionByProname" resultType="profession">
-        select *
-        from zhiyuan.profession
-        where subject like concat('%',#{profession},'%')
-           or proname like concat('%',#{profession},'%')
+        select * from zhiyuan.profession
+        <where>
+            <if test="profession !=null and profession !=''">
+                subject like concat('%',#{profession},'%')
+                or proname like concat('%',#{profession},'%')
+            </if>
+            <if test="profession ==null or profession==''">
+                pid=0
+            </if>
+        </where>
+
+
     </select>
 </mapper>

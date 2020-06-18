@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.jws.WebParam;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -125,11 +126,35 @@ public class SchoolController {
      * 根据专业名称查找开设该专业的学校
      * 对应（根据专业选科目）
      * */
-    @RequestMapping("/school/major/{proname}")
-    public String getSchoolByPro(Model model, @PathVariable(name = "proname") String proname) {
+    @RequestMapping("/school/major")
+    public String getSchoolByPro(Model model, HttpServletRequest request) {
+        String proname = request.getParameter("proname");
         List<Gaokao> schoolByPro = schoolMapper.getSchoolByPro(proname);
         model.addAttribute("schoolList", schoolByPro);
         return "profession2school";
     }
+
+    /*
+    * 首页“找大学/查专业”
+    * */
+    @RequestMapping("/indexSearch")
+    public String getSchoolOrProfession(HttpServletRequest request, Model model){
+        String indexSearhInput = request.getParameter("indexSearhInput");
+        model.addAttribute("indexSearhInput",indexSearhInput);
+        return "indexsearch";
+    }
+
+    /*
+    * 首页“找大学/查专业”---找大学
+    * */
+    @RequestMapping("/indexSearch/school")
+    public String getSchool(HttpServletRequest request,Model model){
+        String indexSearchInput = request.getParameter("indexSearchInput");
+        List<School> schools = schoolMapper.findSchool(indexSearchInput);
+        model.addAttribute("schools",schools);
+        return "indexsearch";
+    }
+
+
 
 }

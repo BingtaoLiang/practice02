@@ -96,7 +96,7 @@
 
             //2.定义正则表达式
             // [a-zA-Z0-9_\u4e00-\u9fa5]
-            var reg_username=/^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9_\u4e00-\u9fa5]{5,12}$/;
+            var reg_username=/^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9_\u4e00-\u9fa5]{5,11}$/;
             // var reg_username=/^\w{6,12}$/;
             //3.判断值是否符合正则的规则
             let flag = reg_username.test(username);
@@ -104,6 +104,7 @@
             let s_username = document.getElementById("s_username");
             if(flag){
                 //提示绿色对勾
+                // s_username.innerHTML="<img src='images/check.jpg' alt='没有图片' width='50' height='40'/>"
                 s_username.innerHTML="<img src='images/check.jpg' alt='没有图片' width='50' height='40'/>"
             }else{
                 //提示用户名有误
@@ -119,7 +120,7 @@
             var password = document.getElementById("password").value;
 
             //2.定义正则表达式
-            var reg_password=/^[a-zA-Z0-9][a-zA-Z0-9~!@#$%^&*_]{5,12}$/;
+            var reg_password=/^[a-zA-Z0-9][a-zA-Z0-9~!@#$%^&*_]{5,11}$/;
             //3.判断值是否符合正则的规则
             let flag = reg_password.test(password);
             //4.提示信息
@@ -141,7 +142,7 @@
             var password2 = document.getElementById("password2").value;
 
             //2.定义正则表达式
-            var reg_password2=/^[a-zA-Z0-9][a-zA-Z0-9~!@#$%^&*_]{5,12}$/;
+            var reg_password2=/^[a-zA-Z0-9][a-zA-Z0-9~!@#$%^&*_]{5,11}$/;
             //3.判断值是否符合正则的规则
             let flag = reg_password2.test(password2);
             //4.提示信息
@@ -218,7 +219,7 @@
                         </tr>
                         <tr>
                             <td class="td_left"><label for="userphone">手机号:</label></td>
-                            <td class="td_right"><input type="text" id="userphone" name="userPhone" placeholder="请输入用户名...">
+                            <td class="td_right"><input type="text" id="userphone" name="userPhone" placeholder="请输入手机号...">
                                 <span id="s_userphone" class="error"></span>
                             </td>
                         </tr>

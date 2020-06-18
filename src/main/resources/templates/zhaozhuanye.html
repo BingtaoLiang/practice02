@@ -64,9 +64,9 @@
 
     <div class="col-lg-9" style="margin-bottom: 60px;margin-top: 40px">
 
-            <form action="">
-                <input  class="sr" type="text" style="float: left;border-radius: 0px;width:700px;height: 40px;margin-left: 50px" placeholder="输入关键词">
-                <input  class="btn" type="button" style="float: left;border-radius: 0px;height: 40px" value="搜索">
+            <form action="/majors">
+                <input  class="sr" type="text" name="profession" style="float: left;border-radius: 0px;width:700px;height: 40px;margin-left: 50px" placeholder="输入关键词">
+                <input  class="btn" type="submit" style="float: left;border-radius: 0px;height: 40px" value="搜索">
             </form>
 
 
@@ -131,7 +131,9 @@
             </div>
             <!-- List group -->
             <ul class="list-group" >
-                <li class="xueke"  th:text="${major.proname}" ></li>
+                <a th:href="@{'/profession_desc/'+${major.pid}}">
+                    <li class="xueke"  th:text="${major.proname}" ></li>
+                </a>
             </ul>
         </div>
 

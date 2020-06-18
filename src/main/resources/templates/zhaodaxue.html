@@ -134,13 +134,16 @@
                 <div class="container-fluid">
                     <ul style="margin-bottom: 22px;padding-left: 0"  th:each="school:${allschool.schools}">
                         <div class="media">
-                            <a class="pull-left" href="#">
+                            <a class="pull-left" th:href="@{'/school_desc_l/'+${school.scid}}">
                                 <img class="media-object"
                                      src="http://img1.youzy.cn/content/media/thumbs/p00189371.jpeg"
                                      style="width: 60px;height: 60px">
                             </a>
-                            <div class="media-body">
-                                <h3 class="media-heading" th:text="${school.name}"></h3>
+
+                            <div class="media-body" >
+                                <a th:href="@{'/school_desc_l/'+${school.scid}}">
+                                    <h3 class="media-heading" th:text="${school.name}"></h3>
+                                </a>
                             </div>
                             <ol class="schooltitle">
                                 <li class="active" th:text="${school.type}"></li>

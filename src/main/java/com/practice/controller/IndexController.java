@@ -12,9 +12,14 @@ public class IndexController {
         return "new";
     }
 
-    @GetMapping("/top")
-    public String top() {
-        return "top";
+    @GetMapping("/myceping")
+    public String myceping() {
+        return "myceping";
+    }
+
+    @GetMapping("/myfuwu")
+    public String myfuwu() {
+        return "myfuwu";
     }
 
     @GetMapping("/zixun")
@@ -62,9 +67,14 @@ public class IndexController {
         return "xuanke2";
     }
 
-    @GetMapping("/chaxun")
-    public String chaxun() {
-        return "chaxun";
+    @GetMapping("/school2profession")
+    public String school2profession() {
+        return "school2profession";
+    }
+
+    @GetMapping("/profession2school")
+    public String profession2school() {
+        return "profession2school";
     }
 
     @GetMapping("/zhaozhuanye")

@@ -13,7 +13,7 @@ public interface ProfessionMapper {
 
     List<Profession> selectDistinctMajor();
 
-    Profession selectByCode(String code);
+    Profession selectByPid(Integer code);
 
     List<Profession> getProfessionByProname(String profession);
 }
